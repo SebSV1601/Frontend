@@ -4,7 +4,7 @@ fetch('http://localhost:3000/pokemon')
     .then(data => {
 
         // Vælg de første 10 Pokémon
-        const pokemon = data.slice(0, 151);
+        const pokemon = data.slice(0,10);
 
         // Hent Pokémon-navne
         const names = pokemon.map(p => p.name);
@@ -14,7 +14,7 @@ fetch('http://localhost:3000/pokemon')
 
         // Opret grafen
         new Chart(document.getElementById('pokemonChart'), {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: names,
                 datasets: [{
