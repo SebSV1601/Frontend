@@ -1,0 +1,81 @@
+:root {
+    --background: #f3f4f6;
+    --surface: #ffffff;
+
+    --red: #b91c1c;
+    --dark-red: #991b1b;
+    --yellow: #facc15;
+
+    --text: #1f2937;
+    --muted-text: #4b5563;
+    --border: #d1d5db;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background-image:
+            linear-gradient(
+                    rgba(255, 255, 255, 0.7),
+                    rgba(255, 255, 255, 0.7)
+            ),
+            url("images/pikachuBackground.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: var(--text);
+}
+
+h1 {
+    font-weight: 700;
+}
+
+p {
+    font-weight: 400;
+}
+/*=================
+SHARED PAGE LAYOUT
+===================*/
+.homePageHeader {
+    text-align: center;
+}
+
+.navLinksHomePage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    width: fit-content;
+    margin: 20px auto;
+    padding: 15px 30px;
+
+    background-color: var(--surface);
+    border: 2px solid var(--red);
+    border-radius: 30px;
+    box-shadow:0 4px 12px rgba(0, 0, 0, 0.1);
+
+
+}
+
+.navLinksHomePage a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navLinksHomePage a:hover {
+    color: var(--red);
+    text-decoration: underline;
+}
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
