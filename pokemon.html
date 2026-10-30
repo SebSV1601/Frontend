@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,78 @@
 
 <main>
     <h1>Udforsk Pokémon</h1>
+    <section id="searhBarPokemon">
+        <label for="pokemonNameSearch">Search Pokemon name</label>
+    <div class="search-controls">
+    <input type="search" id="pokemonNameSearch" placeholder="Write a Pokemon name">
+        <button id="searchButtonNamePokemon">Searh</button>
+    </div>
+    </section>
+
+    <section id="primaryTypeCheckbox">
+    <label>
+        <input type="checkbox" name="primary_type" value="Bug">
+        Bug
+    </label>
+    <label>
+        <input type="checkbox" name="primary_type" value="Dragon">
+        Dragon
+    </label>
+    <label>
+        <input type="checkbox" name="primary_type" value="Electric">
+        Electric
+    </label>
+    <label>
+        <input type="checkbox" name="primary_type" value="Fairy">
+        Fairy
+    </label>
+    <label>
+        <input type="checkbox" name="primary_type" value="Fighting">
+        Fighting
+    </label>
+    <label>
+        <input type="checkbox" name="primary_type" value="Fire">
+        Fire
+    </label>
+    <label>
+        <input type="checkbox" name="primary_type" value="Ghost">
+        Ghost
+    </label>
+    <label>
+        <input type="checkbox" name="primary_type" value="Grass">
+        Grass
+    </label>
+    <label>
+        <input type="checkbox" name="primary_type" value="Ground">
+        Ground
+    </label>
+    <label>
+        <input type="checkbox" name="primary_type" value="Ice">
+        Ice
+    </label>
+    <label>
+        <input type="checkbox" name="primary_type" value="Normal">
+        Normal
+    </label>
+    <label>
+        <input type="checkbox" name="primary_type" value="Poison">
+        Poison
+    </label>
+    <label>
+        <input type="checkbox" name="primary_type" value="Psychic">
+        Psychic
+    </label>
+    <label>
+        <input type="checkbox" name="primary_type" value="Rock">
+        Rock
+    </label>
+    <label>
+        <input type="checkbox" name="primary_type" value="Water">
+        Water
+    </label>
+    </section>
     <div id="pokemonList"></div>
+
 </main>
 </body>
 </html>
