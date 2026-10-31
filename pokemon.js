@@ -54,10 +54,19 @@ const nameButtonSearchPokemon = document.querySelector("#searchButtonNamePokemon
 nameButtonSearchPokemon.addEventListener("click", () => {
     const name = nameInputPokemon.value.trim();
 
-    fetch("http://localhost:3000/pokemon/name?name=" + name)
+    let url;
+
+    if (name.length === 0) {
+        url = "http://localhost:3000/pokemon"
+    }
+    else {
+        url = "http://localhost:3000/pokemon/name?name=" + name;
+    }
+
+    fetch(url)
         .then(response => response.json())
-        .then(nameSearchPokemon => {
-            console.log(nameSearchPokemon)
+        .then(pokemon => {
+            renderPokemon(pokemon);
         })
         .catch(error => {
             console.error(error);
@@ -92,9 +101,6 @@ primaryTypeCheckbox.forEach(checkbox => {
 
 
     });
-
-
-
 
 });
 
