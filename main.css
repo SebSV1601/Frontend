@@ -103,3 +103,15 @@ SHARED PAGE LAYOUT
     display: flex;
     flex-direction: column;
 }
+
+.navLinksHomePage nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.almostGlobalNav {
+    flex-wrap: wrap;
+    justify-content: center;
+}
