@@ -1,3 +1,8 @@
+/* https://claude.ai/share/a51ba936-2504-4b4e-accb-8b4efc79f357 -  Hjælp ved dashboard
+set i bakspejlet havde jeg ikke set opgavebesrivelsen så kom på en rigtigt kompliceret model for dashboard, så forstår hvis det er pågrænsen af vibecoding for første gang brug i chart.js
+
+/*
+ */
 //Dashboard med sammenligning af pokemon's stats
 
 const select1 = document.querySelector("#pokemonSelect");
