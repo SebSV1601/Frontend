@@ -22,3 +22,54 @@
     object-fit: contain;
 }
 
+#pokemonMain h1 {
+    margin-left: 20px;
+}
+
+#searhBarPokemon {
+    margin-left: 20px;
+}
+
+#pokemonNameSearch {
+    padding: 10px 14px;
+    background-color: var(--surface);
+    color: inherit;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font: inherit;
+}
+
+#primaryTypeCheckbox {
+    padding: 5px;
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
+#searchButtonNamePokemon {
+    padding: 10px 18px;
+    background-color: var(--surface);
+    color: inherit;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font: inherit;
+    cursor: pointer;
+}
+
+#primaryTypeCheckbox label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 8px;
+    background-color: var(--surface);
+    border: var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#primaryTypeCheckbox label:has(input:checked) {
+    background-color: var(--border);
+    accent-color: var(--red);
+}
