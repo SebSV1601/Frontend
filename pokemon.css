@@ -73,3 +73,13 @@
     background-color: var(--border);
     accent-color: var(--red);
 }
+
+#moodLabel {
+    margin-left: 20px;
+    display: flex;
+}
+
+#moodSelect {
+    margin-left: 20px;
+}
+
