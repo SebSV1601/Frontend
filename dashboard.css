@@ -1,0 +1,12 @@
+.graf {
+    width: 500px;
+}
+
+
+#topTrainer {
+    font-size: 32px;
+    font-weight: bold;
+    background-color: rgb(255 5 5 / 0.61);
+    padding: 20px;
+    border-radius: 12px;
+}

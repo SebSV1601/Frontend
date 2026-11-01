@@ -64,3 +64,14 @@ select1.addEventListener("change", (e) => {
             }
         });
     });
+
+
+    //trainers med flest pokemons
+    fetch("http://localhost:3000/dashboard/trainerHighestPokemon", {})
+.then(response => response.json())
+.then(data => {
+    console.log(data[0].trainer_name);
+
+    const topTrainer = document.querySelector("#topTrainer");
+    topTrainer.textContent = data[0].trainer_name + " har " + data[0].total + " pokemon";}
+);
