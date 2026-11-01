@@ -1,6 +1,6 @@
 
 function renderPokemon(pokemons) {
-
+// Shows all pokemon with images and stats
     pokemonList.replaceChildren();
     pokemons.forEach(singlePokemon => {
         const card = document.createElement("div");
@@ -47,6 +47,8 @@ function renderPokemon(pokemons) {
         pokemonList.textContent = "Could not find any Pokemon. Try again later"
     });
 
+
+    // Name searchbar write pokemon name and it will come up, if u write nothing it will render all pokemon again
 const nameInputPokemon = document.querySelector("#pokemonNameSearch")
 const nameButtonSearchPokemon = document.querySelector("#searchButtonNamePokemon")
 
@@ -73,6 +75,7 @@ nameButtonSearchPokemon.addEventListener("click", () => {
         });
 });
 
+// If you press a checkbox the primary type will be shown, you can select multiple primary types at the same time
 const primaryTypeCheckbox = document.querySelectorAll("#primaryTypeCheckbox input");
 
 primaryTypeCheckbox.forEach(checkbox => {
@@ -104,6 +107,8 @@ primaryTypeCheckbox.forEach(checkbox => {
 
 });
 
+// this dropdown menu can show you all the moods, if you select a mood the pokemons belonging to that mood id will show.
+// Mood, type and name filters work independently and replace the displayed results
 const moodSelectPokemon = document.querySelector("#moodSelect");
 
 fetch("http://localhost:3000/moods")
