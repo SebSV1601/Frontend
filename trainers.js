@@ -68,7 +68,7 @@ trainers.forEach(trainer => {
     // Go through the Pokémon belonging to each trainer
     trainer.pokemon.forEach(pokemon => {
 
-        // Get Pokémon picture using the Pokédex number
+        // Get Pokémon picture using the Pokedex number
         const pokemonImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
 
         pokemonList += `

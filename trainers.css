@@ -1,17 +1,18 @@
 
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    padding: 20px 30px 50px;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 30px;
 }
-
-/* Trainer container */
 
 #trainers {
     display: flex;
@@ -20,7 +21,6 @@ h1 {
     gap: 30px;
 }
 
-/* Individual trainer cards */
 
 .trainer {
     background-color: white;
@@ -34,7 +34,6 @@ h1 {
     margin-top: 0;
 }
 
-/* Trainer name and hover image */
 
 .trainer-name {
     position: relative;
@@ -65,7 +64,6 @@ h1 {
     color: #e63946;
 }
 
-/* Pokemon list */
 
 .trainer ul {
     padding-left: 20px;
@@ -77,7 +75,6 @@ h1 {
     cursor: pointer;
 }
 
-/* Pokemon hover images */
 
 .pokemon-image {
     display: none;
