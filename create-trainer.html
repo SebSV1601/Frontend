@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Trainer</title>
+
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="create-trainer.css">
+
+    <script src="create-trainer.js" defer></script>
+</head>
+<body>
+
+<header>
+    <nav class="almostGlobalNav">
+        <a href="index.html">Home</a>
+        <a href="pokemon.html">Pokémon</a>
+        <a href="trainers.html">Trainers</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="create-trainer.html">Create Trainer</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Create New Trainer</h1>
+
+    <form id="trainerForm">
+        <label for="trainerName">Trainer name</label>
+        <input type="text" id="trainerName" required>
+
+        <label for="hometown">Hometown</label>
+        <input type="text" id="hometown" required>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" min="1" required>
+
+        <h2>Select Pokémon</h2>
+
+        <div id="pokemonOptions"></div>
+
+        <button type="submit">Create Trainer</button>
+
+        <p id="message" role="status"></p>
+    </form>
+</main>
+
+</body>
+</html>
