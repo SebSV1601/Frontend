@@ -49,7 +49,7 @@ select1.addEventListener("change", (e) => {
             chart.destroy();
         }
 
-//grafen
+//linje diagram grafen
         chart = new Chart(document.getElementById("pokemonChart"), {
             type: "line",
             data: {
@@ -64,8 +64,6 @@ select1.addEventListener("change", (e) => {
             }
         });
     });
-
-
     //trainers med flest pokemons
     fetch("http://localhost:3000/dashboard/trainerHighestPokemon", {})
 .then(response => response.json())
@@ -73,5 +71,32 @@ select1.addEventListener("change", (e) => {
     console.log(data[0].trainer_name);
 
     const topTrainer = document.querySelector("#topTrainer");
-    topTrainer.textContent = data[0].trainer_name + " har " + data[0].total + " pokemon";}
-);
+    topTrainer.textContent = data[0].trainer_name + " har " + data[0].total + " pokemon";
+});
+
+    fetch("http://localhost:3000/dashboard/differentTypes", {})
+        .then( response => response.json())
+            .then(data => {
+                console.log(data);
+                const typer = [];
+                const antal = [];
+                data.forEach(row => {
+                    typer.push(row.primary_type);
+                    antal.push(row.number_of_primary_types);
+                });
+
+                console.log(typer);
+                console.log(antal);
+
+                new Chart(document.getElementById("fordeltPåTyper"), {
+                    type: "bar",
+                    data: {
+                        labels: typer,
+                        datasets: [{
+                            label: "Antal Pokémons",
+                            data: antal,
+                        }]
+                    }
+                });
+            });
+
