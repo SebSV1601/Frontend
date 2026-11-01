@@ -104,6 +104,39 @@ primaryTypeCheckbox.forEach(checkbox => {
 
 });
 
+const moodSelectPokemon = document.querySelector("#moodSelect");
+
+fetch("http://localhost:3000/moods")
+    .then(response => response.json())
+    .then(moods => {
+        moods.forEach(mood => {
+            const option = document.createElement("option");
+
+            option.value = mood.mood_id;
+            option.innerText = mood.mood_name;
+
+            moodSelectPokemon.appendChild(option);
+        });
+
+    moodSelectPokemon.addEventListener("change", () => {
+        const selectedMoodPokemon = moodSelectPokemon.value;
+
+        fetch("http://localhost:3000/pokemon")
+            .then(response => response.json())
+            .then(pokemons => {
+                if (selectedMoodPokemon === "") {
+                    renderPokemon(pokemons);
+                } else {
+                    const filteredPokemon = pokemons.filter(singlePokemon => {
+                        return singlePokemon.mood_id === Number(selectedMoodPokemon);
+                    });
+                    renderPokemon(filteredPokemon)
+                }
+            })
+
+    });
+    });
+
 
 
 

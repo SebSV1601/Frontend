@@ -60,15 +60,13 @@ const trainers = [
 // Find the HTML container
 const trainersContainer = document.querySelector("#trainers");
 
-// Go through every trainer
-trainers.forEach(trainer => {
+// Display a trainer and their Pokémon
+function renderTrainer(trainer) {
 
     let pokemonList = "";
 
-    // Go through the Pokémon belonging to each trainer
     trainer.pokemon.forEach(pokemon => {
 
-        // Get Pokémon picture using the Pokedex number
         const pokemonImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
 
         pokemonList += `
@@ -83,16 +81,20 @@ trainers.forEach(trainer => {
         `;
     });
 
-    // Shows the trainer and their Pokémon
+    // Original trainers have pictures.
+    // New trainers can be displayed without pictures.
+    const trainerImage = trainer.image ? `
+        <img class="trainer-image"
+             src="${trainer.image}"
+             alt="${trainer.name}">
+    ` : "";
+
     trainersContainer.innerHTML += `
         <div class="trainer">
 
             <h2 class="trainer-name">
                 ${trainer.name}
-
-                <img class="trainer-image"
-                     src="${trainer.image}"
-                     alt="${trainer.name}">
+                ${trainerImage}
             </h2>
 
             <ul>
@@ -101,4 +103,60 @@ trainers.forEach(trainer => {
 
         </div>
     `;
+}
+
+// Display the original six trainers
+trainers.forEach(trainer => {
+    renderTrainer(trainer);
 });
+
+// Retrieve trainers created through the website
+Promise.all([
+    fetch("http://localhost:3000/trainers"),
+    fetch("http://localhost:3000/trainer/owner")
+])
+    .then(responses => {
+
+        responses.forEach(response => {
+            if (!response.ok) {
+                throw new Error("Could not retrieve trainers");
+            }
+        });
+
+        return Promise.all(
+            responses.map(response => response.json())
+        );
+    })
+    .then(([allTrainers, ownedPokemon]) => {
+
+        // Only display additional trainers from the database
+        const originalNames = trainers.map(trainer => trainer.name);
+
+        allTrainers.forEach(trainer => {
+
+            if (originalNames.includes(trainer.trainer_name)) {
+                return;
+            }
+
+            const pokemonList = ownedPokemon
+                .filter(pokemon =>
+                    pokemon.trainer_name === trainer.trainer_name
+                )
+                .map(pokemon => ({
+                    name: pokemon.name,
+                    id: null
+                }));
+
+            const newTrainer = {
+                name: trainer.trainer_name,
+                image: null,
+                pokemon: pokemonList
+            };
+
+            renderTrainer(newTrainer);
+        });
+
+    })
+    .catch(error => {
+        console.error("Could not load new trainers:", error);
+    });
